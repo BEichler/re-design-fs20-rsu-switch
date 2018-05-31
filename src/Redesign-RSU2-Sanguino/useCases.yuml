@@ -1,0 +1,27 @@
+// {type:usecase}
+// {direction:leftToRight}
+[User]-(proximity swipe)
+(proximity swipe)>(interaction mode)
+(interaction mode)>(shutter mode)
+(interaction mode)>(light mode)
+(interaction mode)>(media mode)
+//interaction mode: shutter mode
+[Shutter mode]-(click TA1-shutter)
+(click TA1-shutter)>(shutter up)
+(click TA1-shutter)>(shutter stop if in same time running up/down)
+[Shutter mode]-(click TA2-shutter)
+(click TA2-shutter)>(shutter down)
+(click TA2-shutter)>(shutter stop if in same time running up/down)
+[Shutter mode]-(longpress Teach button-shutter >5s)
+(longpress Teach button-shutter >5s)>(shutter adjustment programm activated)
+(longpress Teach button-shutter >5s)<(shutter adjustment programm release)
+//interaction mode: light mode
+[Light Mode]-(click TA1-light)
+(click TA1-light)>(light on)
+[Light Mode]-(longpress TA1-light)
+(longpress TA1-light)>(light dimup)
+[Light Mode]-(click TA2-light)
+(click TA2-light)>(light off)
+[Light Mode]-(longpress TA2-light)
+(longpress TA2-light)>(light dimdown)
+//interaction mode: media mode
